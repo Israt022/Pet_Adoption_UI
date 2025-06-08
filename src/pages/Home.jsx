@@ -1,7 +1,11 @@
+import CarouselSlide from "../components/Home/Carousel/CarouselSlide";
+import Category from "../components/Home/Categories/Category";
+
 const Home = () => {
     return (
         <div>
-            Home!
+            <CarouselSlide/>
+            <Category/>
         </div>
     );
 };
