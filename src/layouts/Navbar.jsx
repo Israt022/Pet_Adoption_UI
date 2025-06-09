@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,9 +19,9 @@ const Navbar = () => {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center space-x-6 font-medium text-gray-700">
-          <a href="#" className="text-yellow-500 flex items-center gap-1">🐾 Home</a>
-          <a href="#">About</a>
-          <a href="#">Pets</a>
+          <Link to="/#" className="text-yellow-500 flex items-center gap-1">🐾 Home</Link>
+          <Link to="about">About</Link>
+          <Link to="shop">Pets</Link>
           <a href="#">Services</a>
           <a href="#">Pages</a>
         </div>
