@@ -95,7 +95,7 @@ const CarouselSlide = () => {
                     {slide.subtitle}
                   </p>
                   <button
-                    className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-3 rounded transition-colors duration-300"
+                    className="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-8 py-3 rounded transition-colors duration-300"
                     onClick={slide.buttonAction}
                   >
                     {slide.buttonText}
@@ -131,7 +131,7 @@ const CarouselSlide = () => {
             key={index}
             onClick={() => goToSlide(index)}
             className={`w-3 h-3 rounded-full transition-colors duration-300 ${
-              index === currentSlide ? "bg-orange-500" : "bg-white/50 hover:bg-white/70"
+              index === currentSlide ? "bg-yellow-500" : "bg-white/50 hover:bg-white/70"
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />

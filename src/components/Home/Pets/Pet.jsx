@@ -14,7 +14,7 @@ const Pet = () => {
     setLoading(true)
     apiClient
       .get("/pets/")
-      .then((res) => setPets(res.data))
+      .then((res) => setPets(res.data.results))
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false))
   }, []);
@@ -25,7 +25,7 @@ const Pet = () => {
     <div className="py-16 bg-gray-50">
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-12">
-          <PawPrint size={48} className="mx-auto mb-4 text-orange-500"/>
+          <PawPrint size={48} className="mx-auto mb-4 text-yellow-500"/>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">Adopt a Pet</h2>
           <h3 className="text-2xl md:text-3xl text-gray-600 mb-4">Find a new furry Friend</h3>
           <p className="text-gray-500 max-w-3xl mx-auto leading-relaxed">
@@ -35,7 +35,7 @@ const Pet = () => {
         {/* Spinner  */}
         {loading ? (
           <div className="flex justify-center mt-16">
-            <span className="loading loading-spinner text-orange-500"></span>
+            <span className="loading loading-spinner text-yellow-500"></span>
           </div>
         ) : (
           <>
@@ -53,7 +53,7 @@ const Pet = () => {
               <div className="text-center mt-8">
                 <button
                   onClick={() => setShowAll(true)}
-                  className="bg-orange-400 hover:bg-orange-500 text-white font-semibold px-8 py-3 rounded-full transition-colors duration-300 uppercase tracking-wide"
+                  className="bg-yellow-400 hover:bg-yellow-500 text-white font-semibold px-8 py-3 rounded-full transition-colors duration-300 uppercase tracking-wide"
                 >
                   See More
                 </button>

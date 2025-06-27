@@ -7,7 +7,7 @@ const About = () => {
       <div className="max-w-6xl mx-auto px-4">
         {/* Paw Print Icon */}
         <div className="flex justify-center mb-4">
-          <PawPrint size={48} className="text-red-400" />
+          <PawPrint size={48} className="text-yellow-400" />
         </div>
 
         {/* Section Title */}
@@ -50,15 +50,15 @@ const About = () => {
             {/* Bullet Points */}
             <ul className="space-y-3">
             <li className="flex items-center">
-                <PawPrint size={16} className="text-red-400 mr-2 flex-shrink-0" />
+                <PawPrint size={16} className="text-yellow-400 mr-2 flex-shrink-0" />
                 <span className="text-gray-600">Trusted and compassionate pet adoption services.</span>
             </li>
             <li className="flex items-center">
-                <PawPrint size={16} className="text-red-400 mr-2 flex-shrink-0" />
+                <PawPrint size={16} className="text-yellow-400 mr-2 flex-shrink-0" />
                 <span className="text-gray-600">Health-checked and vaccinated animals.</span>
             </li>
             <li className="flex items-center">
-                <PawPrint size={16} className="text-red-400 mr-2 flex-shrink-0" />
+                <PawPrint size={16} className="text-yellow-400 mr-2 flex-shrink-0" />
                 <span className="text-gray-600">Supportive team ready to guide your adoption journey.</span>
             </li>
             </ul>

@@ -1,31 +1,71 @@
 import { Dog, Cat, Bird } from "lucide-react"
+import { useEffect, useState } from "react";
+import { useParams } from "react-router";
+import apiClient from "../../../services/api-client";
 
 
 const Category = () => {
+  const [pet,setPet] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const { petId } = useParams();
+      // console.log("Pet availability:", pet.availability);
+  
+  const fetchAllPets = async () => {
+  let allPets = [];
+  let nextUrl = "/pets/";
+
+  while (nextUrl) {
+    const res = await apiClient.get(nextUrl);
+    const data = res.data;
+    allPets = [...allPets, ...data.results];
+    nextUrl = data.next ? data.next.replace("https://petbondbd.vercel.app/api/v1", "") : null;
+  }
+
+  return allPets;
+};
+
+
+  useEffect(() => {
+      setLoading(true);
+      fetchAllPets().then((allPets) => {
+          setPet(allPets);
+          setLoading(false);
+          console.log('All pets',allPets);
+      });
+  }, [petId]);
+
+  if (loading) return <div className="flex justify-center mt-27 mb-30">
+            <span className="loading loading-spinner text-yellow-500"></span>
+          </div>;
+  // category count
+  const dogCount = pet.filter((p) => p.category === "dog").length;
+  const catCount = pet.filter((p) => p.category === "cat").length;
+  const birdCount = pet.filter((p) => p.category === "bird").length;
+
     const categories = [
     {
       id: 1,
       name: "Dogs",
-      icon: <Dog size={48} className="text-orange-500" />,
+      icon: <Dog size={48} className="text-yellow-500" />,
       description:
         "Loyal companions with endless energy and love. Find the perfect dog breed for your family.",
-      count: 25,
+      count: dogCount,
     },
     {
       id: 2,
       name: "Cats",
-      icon: <Cat size={48} className="text-orange-500" />,
+      icon: <Cat size={48} className="text-yellow-500" />,
       description:
         "Independent and affectionate feline friends. Discover cats that match your lifestyle.",
-      count: 18,
+      count: catCount,
     },
     {
       id: 3,
       name: "Birds",
-      icon: <Bird size={48} className="text-orange-500" />,
+      icon: <Bird size={48} className="text-yellow-500" />,
       description:
         "Colorful and intelligent feathered companions. Explore various bird species and care tips.",
-      count: 12,
+      count: birdCount,
     },
   ]
   const handleCategoryClick = (categoryName) => {
@@ -58,7 +98,7 @@ const Category = () => {
               </div>
 
               {/* Category Name */}
-              <h3 className="text-2xl font-bold text-gray-800 mb-4 group-hover:text-orange-500 transition-colors duration-300">
+              <h3 className="text-2xl font-bold text-gray-800 mb-4 group-hover:text-yellow-500 transition-colors duration-300">
                 {category.name}
               </h3>
 
@@ -67,7 +107,7 @@ const Category = () => {
 
               {/* Count Badge */}
               {category.count && (
-                <div className="inline-flex items-center px-3 py-1 bg-orange-100 text-orange-600 rounded-full text-sm font-medium">
+                <div className="inline-flex items-center px-3 py-1 bg-orange-100 text-yellow-600 rounded-full text-sm font-medium">
                   {category.count} Available
                 </div>
               )}
@@ -76,11 +116,11 @@ const Category = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center mt-12">
+        {/* <div className="text-center mt-12">
           <button className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-3 rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg">
             View All Pets
           </button>
-        </div>
+        </div> */}
       </div>
     </section>
   )
