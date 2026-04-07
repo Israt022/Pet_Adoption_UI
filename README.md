@@ -1,6 +1,6 @@
-<p align="center">
-  ![🐾 PetBond BD Project](https://readme-typing-svg.demolab.com?font=Fira+Code&size=40&duration=2500&pause=1000&color=FFD700&center=true&vCenter=true&width=600&lines=🐾+PetBond+BD+Project)
-</p>
+<h1 align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=40&duration=2500&pause=1000&color=FFD700&center=true&vCenter=true&width=600&lines=+PetBond+BD+Project" alt="Typing Title">
+</h1>
 
 ---
 
